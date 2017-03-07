@@ -1,6 +1,6 @@
 require 'sqlite3'
 
-db = SQLite3::Database.open '../db/development.sqlite3'
+db = SQLite3::Database.open './db/development.sqlite3'
 
 def getBloodType()
   case rand(8)
@@ -31,6 +31,7 @@ begin
   end
 rescue SQLite3::Exception => e
   puts e.message
+  puts 'run this from root location'
 ensure
   db.close
 end
