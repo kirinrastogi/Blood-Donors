@@ -8,12 +8,13 @@ class TransactionsController < ApplicationController
   end
 
   def donor
-    render json: Donor.find_by_sql("select * from donors join transactions on transactions.donor_id=donors.id where donors.id=#{params[:id]};")
+    render json: Transaction.includes(:donor).where(donor_id: params[:id])
   end
 
   def recipient
-    render json: Recipient.find_by_sql("select * from recipients join transactions on transactions.recipient_id=recipients.id where recipients.id=#{params[:id]};")
+    render json: Transaction.includes(:recipient).where(recipient_id: params[:id])
   end
+
 
   def create
   end
