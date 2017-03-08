@@ -1,4 +1,4 @@
 class Donor < ApplicationRecord
-  has_many :transactions
-  has_many :recipients, :through => :transactions
+  has_many :donations
+  has_many :recipients, :through => :donations
 end

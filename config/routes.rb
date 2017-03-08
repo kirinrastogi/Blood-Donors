@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :donors, only: [:show, :index, :create]
   post '/recipients/affected' => 'recipients#affected'
-  resources :transactions, only: [:show, :index, :create]
-  post '/transactions/donor' => 'transactions#donor'
-  post '/transactions/recipient' => 'transactions#recipient'
+  resources :donations, only: [:show, :index, :create]
+  post '/donations/donor' => 'donations#donor'
+  post '/donations/recipient' => 'donations#recipient'
   resources :recipients, only: [:show, :index, :create]
 end

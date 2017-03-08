@@ -1,4 +1,4 @@
-class TransactionsController < ApplicationController
+class DonationController < ApplicationController
   def show
     render json: Transaction.find(params[:id])
   end

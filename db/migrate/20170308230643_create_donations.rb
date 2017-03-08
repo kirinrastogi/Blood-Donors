@@ -1,4 +1,4 @@
-class CreateTransactions < ActiveRecord::Migration[5.0]
+class CreateDonations < ActiveRecord::Migration[5.0]
   def change
     create_table :donors do |t|
       t.string :email

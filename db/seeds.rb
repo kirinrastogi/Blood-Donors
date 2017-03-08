@@ -28,5 +28,5 @@ end
 puts "creating transactions"
 50.times do |id|
   puts id
-  Transaction.create(id: id, donor_id: rand(100), recipient_id: rand(100))
+  Donation.create(id: id, donor_id: rand(100), recipient_id: rand(100))
 end

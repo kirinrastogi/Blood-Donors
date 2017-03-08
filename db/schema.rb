@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170307212502) do
-
-  create_table "donors", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "blood_type", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 20170308230643) do
 
   create_table "nurses", force: :cascade do |t|
     t.string   "name"
@@ -34,23 +26,6 @@ ActiveRecord::Schema.define(version: 20170307212502) do
     t.datetime "updated_at",     null: false
     t.index ["nurse_id"], name: "index_present_nurses_on_nurse_id"
     t.index ["transaction_id"], name: "index_present_nurses_on_transaction_id"
-  end
-
-  create_table "recipients", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "blood_type", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "transactions", force: :cascade do |t|
-    t.integer  "donor_id"
-    t.integer  "recipient_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["donor_id"], name: "index_transactions_on_donor_id"
-    t.index ["recipient_id"], name: "index_transactions_on_recipient_id"
   end
 
 end
