@@ -26,8 +26,8 @@ end
 begin 
   100.times do |id|
     puts id
-    db.execute "insert into donors values (#{id}, 'name#{id}', 'email#{id}', '#{getBloodType()}', '#{Time.now}', '#{Time.now}');"
-    db.execute "insert into recipients values (#{id}, 'name#{id}', 'email#{id}', '#{getBloodType()}', '#{Time.now}', '#{Time.now}');"
+    db.execute "insert into donors values (#{id}, 'donName#{id}', 'email#{id}', '#{getBloodType()}', '#{Time.now}', '#{Time.now}');"
+    db.execute "insert into recipients values (#{id}, 'recName#{id}', 'email#{id}', '#{getBloodType()}', '#{Time.now}', '#{Time.now}');"
   end
 
   puts 'creating transactions'
