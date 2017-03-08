@@ -29,6 +29,12 @@ begin
     db.execute "insert into donors values (#{id}, 'name#{id}', 'email#{id}', '#{getBloodType()}', '#{Time.now}', '#{Time.now}');"
     db.execute "insert into recipients values (#{id}, 'name#{id}', 'email#{id}', '#{getBloodType()}', '#{Time.now}', '#{Time.now}');"
   end
+
+  puts 'creating transactions'
+  50.times do |id|
+    puts id
+    db.execute "insert into transactions values ('#{id}', '#{rand(100)}', '#{rand(100)}', '#{Time.now}', '#{Time.now}');"
+  end
 rescue SQLite3::Exception => e
   puts e.message
   puts 'run this from root location'

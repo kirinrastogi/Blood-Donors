@@ -4,7 +4,7 @@ class DonorsController < ApplicationController
   end
 
   def index
-    render json: Donor.first(10)
+    render json: Donor.find_each
   end
 
   def create
