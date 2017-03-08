@@ -8,7 +8,7 @@ class RecipientsController < ApplicationController
   end
 
   def affected
-    render json: Donor.find_by_sql("select * from donors join transactions on transactions.donor_id=donors.id join recipients on transactions.recipient_id=recipients.id where transactions.donor_id=#{params[:id]};")
+    render json: Donor.joins(:transactions => :recipient).where("transactions.donor_id=#{params[:id]}").select("*")
   end
 
   def create
