@@ -8,6 +8,7 @@ class TransactionsController < ApplicationController
   end
 
   def donor
+    puts params[:id]
     render json: Donor.find_by_sql("select * from donors join transactions on transactions.donor_id=donors.id where donors.id=#{params[:id]};")
   end
 
