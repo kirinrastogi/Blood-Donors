@@ -11,12 +11,12 @@ class RecipientsController < ApplicationController
     after = params[:after] || 0
     render json: 
       Donor.joins(:donations => :recipient)
-      .select(
-    '*', 'donations.created_at as donation_date'
-    ).where(
-      'donations.donor_id = :id AND donation_date >= :after',
-      id: params[:id], after: after
-    )
+      .select('*', 'donations.created_at as donation_date')
+      .where(
+        'donations.donor_id = :id AND donation_date >= :after',
+        id: params[:id],
+        after: after
+      )
   end
 
   def create
@@ -25,6 +25,6 @@ class RecipientsController < ApplicationController
   private
 
   def recipient_params
-    params.require(:recipient).permit(:id, :after)
+    params.require(:recipient).permit(:after)
   end
 end
