@@ -8,7 +8,7 @@ class RecipientsController < ApplicationController
   end
 
   def affected
-    render json: Donor.joins(:donations => :recipient).where("donations.donor_id=#{params[:id]}").select("*")
+    render json: Donor.joins(:donations => :recipient).where("donations.donor_id=#{params[:id]}").select("*", "donations.created_at as donation_date")
   end
 
   def create
