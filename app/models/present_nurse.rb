@@ -1,4 +1,4 @@
 class PresentNurse < ApplicationRecord
-  belongs_to :transaction
+  belongs_to :donation
   belongs_to :nurse
 end
