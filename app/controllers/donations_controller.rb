@@ -17,4 +17,10 @@ class DonationsController < ApplicationController
 
   def create
   end
+
+  private
+
+  def donation_params
+    params.require(:donation)
+  end
 end

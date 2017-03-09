@@ -9,4 +9,10 @@ class DonorsController < ApplicationController
 
   def create
   end
+
+  private
+  
+  def donor_params
+    params.require(:donor)
+  end
 end
