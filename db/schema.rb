@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170309004030) do
+ActiveRecord::Schema.define(version: 20170309170249) do
 
   create_table "donations", force: :cascade do |t|
     t.integer  "donor_id"
@@ -24,31 +24,15 @@ ActiveRecord::Schema.define(version: 20170309004030) do
   create_table "donors", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "blood_type", null: false
+    t.string   "blood_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "nurses", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "present_nurses", force: :cascade do |t|
-    t.integer  "donation_id"
-    t.integer  "nurse_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["donation_id"], name: "index_present_nurses_on_donation_id"
-    t.index ["nurse_id"], name: "index_present_nurses_on_nurse_id"
   end
 
   create_table "recipients", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
-    t.string   "blood_type", null: false
+    t.string   "blood_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
