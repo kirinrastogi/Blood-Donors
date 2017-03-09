@@ -1,2 +1,0 @@
-class DonorController < ApplicationController
-end
