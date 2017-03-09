@@ -13,4 +13,10 @@ class RecipientsController < ApplicationController
 
   def create
   end
+
+  private
+  
+  def recipient_params
+    params.require(:recipient).permit(:id)
+  end
 end

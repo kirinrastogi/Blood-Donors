@@ -15,7 +15,6 @@ class DonationController < ApplicationController
     render json: Transaction.includes(:recipient).where(recipient_id: params[:id])
   end
 
-
   def create
   end
 end
