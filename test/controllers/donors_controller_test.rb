@@ -25,5 +25,10 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :ok
     assert_equal 'text/html', @response.content_type
     assert_kind_of String, body
+    donor = @controller.send(:show_json)
+    assert_kind_of Object, donor
+    assert_equal donor.name, 'name1'
+    assert_equal donor.id, 1
+    assert_equal donor.email, 'email1'
   end
 end

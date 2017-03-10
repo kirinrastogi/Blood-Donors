@@ -25,4 +25,14 @@ class DonorsController < ApplicationController
   def donor_params
     params.require(:donor).permit(:name, :email, :blood_type)
   end
+
+  def show_json
+    Donor.find params[:id]
+  end
+
+  def index_json
+    Donor.find_each
+  end
+
+  helper_method :show_json, :index_json
 end
