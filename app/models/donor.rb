@@ -3,7 +3,7 @@ class Donor < ApplicationRecord
   has_many :recipients, :through => :donations
   validates :email, :blood_type, :name, presence: true
 
-  def self.validate_type(type)
+  def self.validate_type!(type)
     if not !!(type=~ /^(a|b|ab|o)[+-]$/)
       raise ArgumentError, 'Invalid blood_type'
     end
