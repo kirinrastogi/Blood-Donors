@@ -1,0 +1,14 @@
+<h1>New Donor</h1>
+
+<%= form_for @donor do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br />
+  <%= f.label :email %>
+  <%= f.text_area :email %>
+  <br />
+  <%= f.label :blood_type %>
+  <%= f.text_area :blood_type %>
+  <br />
+  <%= f.submit %>
+<% end %>
