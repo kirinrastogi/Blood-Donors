@@ -5,7 +5,7 @@ require 'rails/test_help'
 class ActiveSupport::TestCase
   fixtures :all
 
-  load "#{Rails.root}/db/seeds.rb"
+  #load "#{Rails.root}/db/seeds.rb"
 
   def donors_url
     'http://localhost:3000/donors/'
