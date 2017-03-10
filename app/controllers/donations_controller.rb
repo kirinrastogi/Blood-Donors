@@ -1,7 +1,6 @@
 class DonationsController < ApplicationController
   def show
-    render json: 
-      Donor.joins(:donations => :recipient)
+    @donation = Donor.joins(:donations => :recipient)
       .where('donations.id = ?', params[:id])
       .select(
         'donations.created_at', 
@@ -12,7 +11,7 @@ class DonationsController < ApplicationController
         'recipients.email as recipient_email',
         'donors.name as donor_name',
         'donors.email as donor_email'
-      )
+    ).first
   end
 
 
