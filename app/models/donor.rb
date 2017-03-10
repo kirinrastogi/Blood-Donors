@@ -4,7 +4,7 @@ class Donor < ApplicationRecord
   validates :email, :blood_type, :name, presence: true
 
   def self.validate_type!(type)
-    if not !!(type=~ /^(a|b|ab|o)[+-]$/)
+    if not !!(type.downcase=~ /^(a|b|ab|o)[+-]$/)
       raise ArgumentError, 'Invalid blood_type'
     end
   end
