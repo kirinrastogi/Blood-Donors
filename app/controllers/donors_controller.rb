@@ -4,7 +4,7 @@ class DonorsController < ApplicationController
   end
 
   def index
-    render json: index_json
+    render json: Donor.find_each
   end
 
   def new
@@ -30,9 +30,5 @@ class DonorsController < ApplicationController
     Donor.find params[:id]
   end
 
-  def index_json
-    Donor.find_each
-  end
-
-  helper_method :show_json, :index_json
+  helper_method :show_json
 end

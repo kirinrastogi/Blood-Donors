@@ -1,15 +1,6 @@
 require 'test_helper'
 
 class DonorsControllerTest < ActionDispatch::IntegrationTest
-
-  setup do
-    @donor = donors(:one)
-  end
-
-  teardown do
-    Rails.cache.clear
-  end
-
   test 'get index response' do
     get donors_url
     body = JSON.parse @response.body
