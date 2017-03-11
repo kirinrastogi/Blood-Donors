@@ -3,12 +3,25 @@ require 'test_helper'
 class DonorsControllerTest < ActionDispatch::IntegrationTest
   test 'get index response' do
     get donors_url
-    body = JSON.parse @response.body
     assert_response :ok
+  end
+
+  test 'get index response format' do
+    get donors_url
+    body = JSON.parse @response.body
     assert_equal 'application/json', @response.content_type
     assert_kind_of Array, body
     assert_kind_of Hash, body[0]
-    assert Donor.new(body.first).validate
+  end
+
+  test 'get index response properties' do
+    get donors_url
+    donor = JSON.parse(@response.body).first
+    id, name, email = donor.values
+    assert_equal 'name1', name
+    assert_equal 'email1', email
+    assert_equal 1, id
+    assert Donor.new(donor).validate
   end
 
   test 'get show response' do
@@ -18,12 +31,18 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     assert_kind_of String, body
   end
 
-  test 'get show response json' do
+  test 'get show response format' do
     get donors_url + '2/'
     donor = @controller.send(:show_json)
-    assert_kind_of Object, donor
-    assert_equal donor.name, 'name2'
-    assert_equal donor.id, 2
-    assert_equal donor.email, 'email2'
+    assert_kind_of Donor, donor
+  end
+
+  test 'get show response properties' do
+    get donors_url + '2/'
+    donor = @controller.send(:show_json)
+    assert_equal 'name2', donor.name
+    assert_equal 2, donor.id
+    assert_equal 'email2', donor.email
+    assert Donor.new(donor.attributes).validate
   end
 end
