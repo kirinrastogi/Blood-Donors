@@ -1,10 +1,10 @@
 class DonorsController < ApplicationController
   def show
-    @donor = Donor.find params[:id]
+    @donor = show_json
   end
 
   def index
-    render json: Donor.find_each
+    render json: index_json
   end
 
   def new
