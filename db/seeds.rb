@@ -19,14 +19,14 @@ def getBloodType()
   end
 end
 
+puts 'Creating donors and recipients'
+Donor.create(id: 100, name: 'firstName', email: 'firstEmail', blood_type: 'o-')
 100.times do |id|
-  puts id
   Donor.create(id: id, name: "donName#{id}", email: "donEmail#{id}", blood_type: getBloodType())
   Recipient.create(id: id, name: "recName#{id}", email: "recEmail#{id}", blood_type: getBloodType())
 end
 
-puts "creating donations"
+puts "Creating donations"
 50.times do |id|
-  puts id
   Donation.create(id: id, donor_id: rand(100), recipient_id: rand(100))
 end
