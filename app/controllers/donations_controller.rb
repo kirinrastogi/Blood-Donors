@@ -21,7 +21,7 @@ class DonationsController < ApplicationController
 
   def create
     @donation = Donation.new donation_params
-    Donation.validate!(params)
+    Donation.validate_ids!(params)
     @donation.save!
     redirect_to @donation
   rescue
