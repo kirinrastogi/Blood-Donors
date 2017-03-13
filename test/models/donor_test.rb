@@ -43,43 +43,37 @@ class DonorTest < ActiveSupport::TestCase
 
   test 'type invalid' do
     type = 'invalid blood type'
-    assert_raises ArgumentError do
-      Donor.validate_type! type
-    end
+    donor = Donor.new(name: 'kirin', email: 'emailTest', blood_type: type)
+    assert_not donor.save
   end
 
   test 'type ab' do
     type = 'ab'
-    assert_raises ArgumentError do
-      Donor.validate_type! type
-    end
+    donor = Donor.new(name: 'kirin', email: 'emailTest', blood_type: type)
+    assert_not donor.save
   end
 
   test 'type o--' do
     type = 'o--'
-    assert_raises ArgumentError do
-      Donor.validate_type! type
-    end
+    donor = Donor.new(name: 'kirin', email: 'emailTest', blood_type: type)
+    assert_not donor.save
   end
 
   test 'type hello+' do
     type = 'hello+'
-    assert_raises ArgumentError do
-      Donor.validate_type! type
-    end
+    donor = Donor.new(name: 'kirin', email: 'emailTest', blood_type: type)
+    assert_not donor.save
   end
 
   test 'type O+' do
     type = 'O+'
-    assert_nothing_raised do
-      Donor.validate_type! type
-    end
+    donor = Donor.new(name: 'kirin', email: 'emailTest', blood_type: type)
+    assert_not donor.save
   end
 
   test 'type ab+' do
     type = 'ab+'
-    assert_nothing_raised do
-      Donor.validate_type! type
-    end
+    donor = Donor.new(name: 'kirin', email: 'emailTest', blood_type: type)
+    assert donor.save
   end
 end
