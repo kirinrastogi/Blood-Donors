@@ -4,14 +4,10 @@ class Donation < ApplicationRecord
   #belongs_to :present_nurse
   has_many :nurses, :through => :present_nurses
   validates :donor_id, :recipient_id, presence: true
+  validate :validate_ids
 
-  def self.validate_ids!(params)
-    if not Donor.exists?(params[:donor_id])
-      raise ArgumentError, 'Donor does not exist'
-    end
-
-    if not Recipient.exists?(params[:recipient_id])
-      raise ArgumentError, 'Recipient does not exist'
-    end
+  def validate_ids
+    errors.add(:donor_id, 'is invalid') unless Donor.exists?(donor_id)
+    errors.add(:recipient_id, 'is invalid') unless Recipient.exists?(recipient_id)
   end
 end
