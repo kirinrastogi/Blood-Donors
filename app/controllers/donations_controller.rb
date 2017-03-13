@@ -1,6 +1,6 @@
 class DonationsController < ApplicationController
   def show
-    @donation = show_json
+    @donation = show_json params[:id]
   end
 
   def index
@@ -8,11 +8,11 @@ class DonationsController < ApplicationController
   end
 
   def donor
-    render json: donor_json
+    render json: donor_json(params[:id])
   end
 
   def recipient
-    render json: recipient_json
+    render json: recipient_json(params[:id])
   end
 
   def new
@@ -32,9 +32,9 @@ class DonationsController < ApplicationController
     params.require(:donation).permit(:recipient_id, :donor_id)
   end
 
-  def show_json
+  def show_json(id)
     Donor.joins(:donations => :recipient)
-      .where('donations.id = ?', params[:id])
+      .where('donations.id = ?', id)
       .select(
     'donations.created_at', 
     'donations.id',
@@ -48,12 +48,12 @@ class DonationsController < ApplicationController
 
   end
 
-  def donor_json
-    Donation.includes(:donor).where(donor_id: params[:id])
+  def donor_json(id)
+    Donation.includes(:donor).where(donor_id: id)
   end
 
-  def recipient_json
-    Donation.includes(:recipient).where(recipient_id: params[:id])
+  def recipient_json(id)
+    Donation.includes(:recipient).where(recipient_id: id)
   end
 
   helper_method(:show_json, :donor_json, :recipient_json)

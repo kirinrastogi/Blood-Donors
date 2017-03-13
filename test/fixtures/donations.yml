@@ -2,8 +2,12 @@
 
 one:
   donor: one
-  recipient: one
+  recipient: two
+  donor_id: 1
+  recipient_id: 2
 
 two:
   donor: two
   recipient: two
+  donor_id: 2
+  recipient_id: 2
