@@ -3,11 +3,11 @@
 one:
   id: 1
   name: name1
-  email: email1
+  email: email1@email.com
   blood_type: o-
 
 two:
   id: 2
   name: name2
-  email: email2
+  email: email2@email.com
   blood_type: b-
