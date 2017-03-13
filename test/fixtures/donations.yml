@@ -1,13 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  donor: one
-  recipient: two
+donation_one:
+  id: 1
+  donor: donor_one
+  recipient: recipient_two
   donor_id: 1
   recipient_id: 2
 
-two:
-  donor: two
-  recipient: two
-  donor_id: 2
-  recipient_id: 2
+donation_two:
+  id: 2
+  donor: donor_one
+  recipient: recipient_one
+  donor_id: 1
+  recipient_id: 1

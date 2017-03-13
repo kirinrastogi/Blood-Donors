@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+recipient_one:
   name: betty
-  email: b@b
+  email: rec1@email.com
   blood_type: o-
   id: 1
 
-two:
+recipient_two:
   name: bob
-  email: b@s
+  email: rec2@email.com
   blood_type: ab-
   id: 2
