@@ -1,6 +1,8 @@
 <h1>Showing Donation</h1>
-<p><%= @donation.id %></p>
-<h3><%= 'Recipient: ' + @donation.recipient_name %></h3>
-<p><%= 'Email: ' + @donation.recipient_email%></p>
-<h3><%= 'Donor: ' + @donation.donor_name %></h3>
-<p><%= 'Email: ' + @donation.donor_email%></p>
+<% if show_populated? %>
+  <p><%= @donation.id %></p>
+  <h3><%= 'Recipient: ' + @donation.recipient_name %></h3>
+  <p><%= 'Email: ' + @donation.recipient_email%></p>
+  <h3><%= 'Donor: ' + @donation.donor_name %></h3>
+  <p><%= 'Email: ' + @donation.donor_email%></p>
+<% end %>

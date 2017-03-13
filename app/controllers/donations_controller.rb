@@ -45,7 +45,6 @@ class DonationsController < ApplicationController
     'donors.name as donor_name',
     'donors.email as donor_email'
     ).first
-
   end
 
   def donor_json(id)
@@ -56,5 +55,9 @@ class DonationsController < ApplicationController
     Donation.includes(:recipient).where(recipient_id: id)
   end
 
-  helper_method(:show_json, :donor_json, :recipient_json)
+  def show_populated?
+    !!show_json(1)
+  end
+
+  helper_method(:show_json, :donor_json, :recipient_json, :show_populated?)
 end
