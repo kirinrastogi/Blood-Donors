@@ -1,4 +1,4 @@
-def getBloodType()
+def getBloodType
   case rand(8)
   when 0
     "o+"
@@ -22,8 +22,8 @@ end
 puts 'Creating donors and recipients'
 Donor.create(id: 100, name: 'firstName', email: 'firstEmail', blood_type: 'o-')
 100.times do |id|
-  Donor.create(id: id, name: "donName#{id}", email: "donEmail#{id}", blood_type: getBloodType())
-  Recipient.create(id: id, name: "recName#{id}", email: "recEmail#{id}", blood_type: getBloodType())
+  Donor.create(id: id, name: "donName#{id}", email: "don#{id}@email.com", blood_type: getBloodType)
+  Recipient.create(id: id, name: "recName#{id}", email: "rec#{id}@email.com", blood_type: getBloodType)
 end
 
 puts "Creating donations"
