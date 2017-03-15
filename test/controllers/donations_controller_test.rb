@@ -52,7 +52,7 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, id
     assert_equal 2, recipient_id
     assert_equal 'recName2', recipient_name
-    assert_equal 'rec2@email.com', recipient_email
+    assert_equal 'recEmail2@email.com', recipient_email
     assert_equal 'donName1', donor_name
     assert_equal 'donEmail1@email.com', donor_email
     assert_raises ActiveRecord::UnknownAttributeError do

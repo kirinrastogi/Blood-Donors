@@ -2,12 +2,12 @@
 
 recipient_one:
   name: recName1
-  email: rec1@email.com
+  email: recEmail1@email.com
   blood_type: o-
   id: 1
 
 recipient_two:
   name: recName2
-  email: rec2@email.com
+  email: recEmail2@email.com
   blood_type: ab-
   id: 2
