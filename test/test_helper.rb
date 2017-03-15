@@ -14,4 +14,8 @@ class ActiveSupport::TestCase
   def donations_url
     'http://localhost:3000/donations/'
   end
+
+  def recipients_url
+    'http://localhost:3000/recipients/'
+  end
 end
