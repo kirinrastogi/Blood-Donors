@@ -29,5 +29,7 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should give response when showing data' do
     donation = @controller.send :show_json, 1
+    # temporary, uses Donor.select in controller
+    assert_kind_of Donor, donation
   end
 end
