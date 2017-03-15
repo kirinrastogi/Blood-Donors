@@ -19,7 +19,7 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     donor = JSON.parse(@response.body).first
     id, name, email = donor.values
     assert_equal 'donName1', name
-    assert_equal 'email1@email.com', email
+    assert_equal 'donEmail1@email.com', email
     assert_equal 1, id
     assert Donor.new(donor).validate
   end
@@ -28,7 +28,7 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     get donors_url + '1/'
     assert_response :ok
     assert_equal 'text/html', @response.content_type
-    assert_kind_of String, body
+    assert_kind_of String, @response.body
   end
 
   test 'get show response format' do
@@ -42,7 +42,7 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     donor = @controller.send(:show_json)
     assert_equal 'donName2', donor.name
     assert_equal 2, donor.id
-    assert_equal 'email2@email.com', donor.email
+    assert_equal 'donEmail2@email.com', donor.email
     assert Donor.new(donor.attributes).validate
   end
 end

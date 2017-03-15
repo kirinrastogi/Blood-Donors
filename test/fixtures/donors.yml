@@ -3,11 +3,11 @@
 donor_one:
   id: 1
   name: donName1
-  email: email1@email.com
+  email: donEmail1@email.com
   blood_type: o-
 
 donor_two:
   id: 2
   name: donName2
-  email: email2@email.com
+  email: donEmail2@email.com
   blood_type: b-
