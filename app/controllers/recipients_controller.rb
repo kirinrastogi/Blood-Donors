@@ -38,7 +38,7 @@ class RecipientsController < ApplicationController
   end
 
   def recipient_params
-    params.require(:recipient).permit(:after)
+    params.require(:recipient).permit(:after, :name, :email, :blood_type)
   end
 
   helper_method :show_json

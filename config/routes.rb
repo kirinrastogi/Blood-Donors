@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :donations, only: [:show, :index, :create, :new]
   get '/donations/donor/:id' => 'donations#donor'
   get '/donations/recipient/:id' => 'donations#recipient'
-  resources :recipients, only: [:show, :index, :create]
+  resources :recipients, only: [:show, :index, :create, :new]
 end
