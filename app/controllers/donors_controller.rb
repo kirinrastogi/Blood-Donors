@@ -13,7 +13,6 @@ class DonorsController < ApplicationController
 
   def create
     @donor = Donor.new donor_params
-    Donor.validate_type! @donor.blood_type
     @donor.save!
     redirect_to @donor
   rescue
