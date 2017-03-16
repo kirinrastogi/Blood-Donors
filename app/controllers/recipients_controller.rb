@@ -8,7 +8,6 @@ class RecipientsController < ApplicationController
   end
 
   def affected
-    after = params[:after] || 0
     @recipients = affected_json
   end
 
