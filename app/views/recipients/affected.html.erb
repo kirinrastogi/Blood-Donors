@@ -1,6 +1,6 @@
 <h1>Affected Recipients</h1>
 <% if @recipients.empty? %>
-  <h1>empty</h1>
+  <h2>No one</h2>
 <% else %>
   <% @recipients.each do |recipient| %>
     <h2>Name: <%= recipient.name %></h2>
