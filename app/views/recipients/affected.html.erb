@@ -2,6 +2,8 @@
 <% if @recipients.empty? %>
   <h1>empty</h1>
 <% else %>
-  <h1>not empty</h1>
-  <p><%= @recipients.to_json %></p>
+  <% @recipients.each do |recipient| %>
+    <h2>Name: <%= recipient.name %></h2>
+    <p>Email: <%= recipient.email %></p>
+  <% end %>
 <% end %>
