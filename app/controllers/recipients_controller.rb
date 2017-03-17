@@ -32,7 +32,10 @@ class RecipientsController < ApplicationController
   def affected_json
     after = params[:after] || 0
     Donor.joins(:donations => :recipient)
-      .select('*')
+      .select(
+        '*',
+        'donations.created_at as donation_date'
+      )
       .where(
         'donations.donor_id = :id AND donations.created_at >= :after',
         id: params[:id],
