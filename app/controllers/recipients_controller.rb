@@ -33,14 +33,14 @@ class RecipientsController < ApplicationController
     after = params[:after] || 0
     Donor.joins(:donations => :recipient)
       .select(
-        '*', 
-        'donations.created_at as donation_date'
-      )
+    '*', 
+    'donations.created_at as donation_date'
+    )
       .where(
-        'donations.donor_id = :id AND donation_date >= :after',
-        id: params[:id],
-        after: after
-      )
+    'donations.donor_id = :id AND donation_date >= :after',
+    id: params[:id],
+    after: after
+    )
   end
 
   def recipient_params
