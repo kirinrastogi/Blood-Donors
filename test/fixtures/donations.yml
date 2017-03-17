@@ -4,11 +4,13 @@ donation_one:
   id: 1
   donor_id: 1
   recipient_id: 2
+  created_at: 2017-03-17
 
 donation_two:
   id: 2
   donor_id: 1
   recipient_id: 1
+  created_at: 2017-03-15
 
 donation_three:
   id: 3
