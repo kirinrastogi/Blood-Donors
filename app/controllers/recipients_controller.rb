@@ -48,5 +48,4 @@ class RecipientsController < ApplicationController
   end
 
   helper_method :show_json, :affected_json
-
 end
