@@ -77,6 +77,12 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
     assert recipients[0].donation_date > '2017-03-16'
   end
 
+  test 'should have truncated recipient list that is empty' do
+    get recipients_url + 'affected/1?after=2017-03-18'
+    recipients = @controller.send :affected_json
+    assert recipients.empty?
+  end
+
   test 'should have recipient list of length 1' do
     get recipients_url + 'affected/2'
     recipients = @controller.send :affected_json
@@ -88,5 +94,4 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
     recipients = @controller.send :affected_json
     assert recipients.empty?
   end
-
 end
