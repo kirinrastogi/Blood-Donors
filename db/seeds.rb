@@ -20,6 +20,7 @@ def getBloodType
 end
 
 SIZE = 1000
+DENSITY = 3
 
 puts 'Creating donors and recipients'
 SIZE.times do |id|
@@ -28,6 +29,6 @@ SIZE.times do |id|
 end
 
 puts "Creating donations"
-SIZE.times do |id|
+(SIZE * DENSITY).times do |id|
   Donation.create(id: id, donor_id: rand(SIZE), recipient_id: rand(SIZE))
 end
