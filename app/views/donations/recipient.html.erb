@@ -1,6 +1,6 @@
 <h1>Donation History</h1>
 <% if @donations.empty? %>
-  <h2>Has not received blood yet</h2>
+  <h3>Has not received blood yet</h3>
 <% else %>
   <% @donations.each do |donation| %>
     <h3>Donation #<%= donation.donation_id %></h3>
