@@ -5,6 +5,6 @@
   <% @recipients.each do |recipient| %>
     <h2>Name: <%= recipient.name %></h2>
     <p>Email: <%= recipient.email %></p>
-    <p>Date: <%= recipient.donation_date %></p>
+    <p>Date: <%= recipient.donation_date[0..18] %></p>
   <% end %>
 <% end %>
