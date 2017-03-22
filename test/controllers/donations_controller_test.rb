@@ -9,6 +9,12 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
     Rails.cache.clear
   end
 
+  def validate_ids(array, id, id_name)
+    array.each do |patient|
+      assert_equal id, patient[id_name]
+    end
+  end
+
   test 'should be ok response on donations index' do
     get donations_url
     assert_response :ok
@@ -59,5 +65,25 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
       Donation.new(donation.attributes).validate
     end
     assert Donation.new({ id: id, donor_id: donor_id, recipient_id: recipient_id }).validate
+  end
+
+  test 'should have donors to do with a donation' do
+    id = 1
+    get donations_url + "donor/#{id}"
+    donors = @controller.send :donor_json, id
+    validate_ids donors, id, :donor_id
+    assert_equal 2, donors.length
+    assert_kind_of ActiveRecord::Relation, donors
+    assert_kind_of Donation, donors[0]
+  end
+
+  test 'should have recipients to do with a donation' do
+    id = 1
+    get donations_url + "recipient/#{id}"
+    recipients = @controller.send :recipient_json, id
+    validate_ids recipients, id, :recipient_id
+    assert_equal 1, recipients.length
+    assert_kind_of ActiveRecord::Relation, recipients
+    assert_kind_of Donation, recipients[0]
   end
 end
