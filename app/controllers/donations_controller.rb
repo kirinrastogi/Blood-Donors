@@ -8,11 +8,11 @@ class DonationsController < ApplicationController
   end
 
   def donor
-    render json: donor_json(params[:id])
+    @donations = donor_json params[:id]
   end
 
   def recipient
-    render json: recipient_json(params[:id])
+    @donations = recipient_json params[:id]
   end
 
   def new

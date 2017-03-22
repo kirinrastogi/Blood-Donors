@@ -69,7 +69,6 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should have donors to do with a donation' do
     id = 1
-    get donations_url + "donor/#{id}"
     donors = @controller.send :donor_json, id
     validate_ids donors, id, :donor_id
     assert_equal 2, donors.length
@@ -79,7 +78,6 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should have recipients to do with a donation' do
     id = 1
-    get donations_url + "recipient/#{id}"
     recipients = @controller.send :recipient_json, id
     validate_ids recipients, id, :recipient_id
     assert_equal 1, recipients.length
