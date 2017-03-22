@@ -61,8 +61,13 @@ class DonationsController < ApplicationController
 
   def recipient_json(id)
     Donation
-      .select('*')
+      .select(
+        '*',
+        'donations.created_at as date',
+        'donations.id as donation_id'
+      )
       .joins(:recipient)
+      .joins(:donor)
       .where(recipient_id: id)
   end
 
