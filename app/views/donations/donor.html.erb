@@ -1,0 +1,12 @@
+<h1>Donation History</h1>
+<% if @donations.empty? %>
+  <h2>Has not donated yet</h2>
+<% else %>
+  <% @donations.each do |donation| %>
+    <h3>Donation #<%= donation.donation_id %></h3>
+    <p>Recipient: <%= donation.name %> </p>
+    <p>Email: <%= donation.email %></p>
+    <p>Date: <%= donation.date[0..18] %></p>
+  <% end %>
+<% end %>
+
