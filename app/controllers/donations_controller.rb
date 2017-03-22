@@ -48,11 +48,22 @@ class DonationsController < ApplicationController
   end
 
   def donor_json(id)
-    Donation.includes(:donor).where(donor_id: id)
+    Donation
+      .select(
+        '*',
+        'donations.created_at as date',
+        'donations.id as donation_id'
+      )
+      .joins(:donor)
+      .joins(:recipient)
+      .where(donor_id: id)
   end
 
   def recipient_json(id)
-    Donation.includes(:recipient).where(recipient_id: id)
+    Donation
+      .select('*')
+      .joins(:recipient)
+      .where(recipient_id: id)
   end
 
   helper_method(:show_json, :donor_json, :recipient_json, :show_populated?)
