@@ -12,7 +12,7 @@ class NursesController < ApplicationController
   end
 
   def create
-    @nurse = Nurse.new donor_params
+    @nurse = Nurse.new nurse_params
     @nurse.save!
     redirect_to @nurse
   rescue
@@ -21,8 +21,8 @@ class NursesController < ApplicationController
 
   private
 
-  def donor_params
-    params.require(:donor).permit(:name, :email)
+  def nurse_params
+    params.require(:nurse).permit(:name, :email)
   end
 
   def show_json
