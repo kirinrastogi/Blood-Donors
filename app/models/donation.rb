@@ -1,7 +1,6 @@
 class Donation < ApplicationRecord
   belongs_to :donor
   belongs_to :recipient
-  #belongs_to :present_nurse
   has_many :nurses, :through => :present_nurses
   validates :donor_id, :recipient_id, presence: true
   validate :validate_ids
