@@ -18,4 +18,8 @@ class ActiveSupport::TestCase
   def recipients_url
     'http://localhost:3000/recipients/'
   end
+
+  def nurses_url
+    'http://localhost:3000/nurses/'
+  end
 end
