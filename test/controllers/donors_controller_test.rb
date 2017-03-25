@@ -34,15 +34,16 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
   test 'get show response format' do
     get donors_url + '2/'
     donor = @controller.send(:show_json)
-    assert_kind_of Donor, donor
+    assert_kind_of Hash, donor
   end
 
   test 'get show response properties' do
     get donors_url + '2/'
     donor = @controller.send(:show_json)
-    assert_equal 'donName2', donor.name
-    assert_equal 2, donor.id
-    assert_equal 'donEmail2@email.com', donor.email
-    assert Donor.new(donor.attributes).validate
+    id, name, email = donor.values
+    assert_equal 'donName2', name
+    assert_equal 2, id
+    assert_equal 'donEmail2@email.com', email
+    assert Donor.new(donor).validate
   end
 end

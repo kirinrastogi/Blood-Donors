@@ -1,6 +1,6 @@
 class DonorsController < ApplicationController
   def show
-    @donor = show_json
+    @donor = Donor.new(show_json)
   end
 
   def index
@@ -26,7 +26,7 @@ class DonorsController < ApplicationController
   end
 
   def show_json
-    Donor.find params[:id]
+    Donor.find(params[:id]).as_json
   end
 
   helper_method :show_json
