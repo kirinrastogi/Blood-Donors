@@ -1,6 +1,6 @@
 class RecipientsController < ApplicationController
   def show
-    @recipient = show_json
+    @recipient = Recipient.new(show_json)
   end
 
   def index
@@ -26,7 +26,7 @@ class RecipientsController < ApplicationController
   private
 
   def show_json
-    Recipient.find params[:id]
+    Recipient.find(params[:id]).as_json
   end
 
   def affected_json

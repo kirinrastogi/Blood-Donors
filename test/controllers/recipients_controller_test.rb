@@ -34,16 +34,17 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
   test 'get show response format' do
     get recipients_url + '2/'
     recipient = @controller.send :show_json
-    assert_kind_of Recipient, recipient
+    assert_kind_of Hash, recipient
   end
 
   test 'get show response properties' do
     get recipients_url + '2/'
     recipient = @controller.send :show_json
-    assert_equal 'recName2', recipient.name
-    assert_equal 2, recipient.id
-    assert_equal 'recEmail2@email.com', recipient.email
-    assert Recipient.new(recipient.attributes).validate
+    id, name, email = recipient.values
+    assert_equal 'recName2', name
+    assert_equal 2, id
+    assert_equal 'recEmail2@email.com', email
+    assert Recipient.new(recipient).validate
   end
 
   test 'get affected response' do
