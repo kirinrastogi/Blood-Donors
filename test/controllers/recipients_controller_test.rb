@@ -64,8 +64,8 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
     recipients = @controller.send :affected_json
     assert_not recipients.empty?
     assert_equal 2, recipients.length
-    assert_kind_of Donor::ActiveRecord_Relation, recipients
-    assert_kind_of Donor, recipients[0]
+    assert_kind_of Array, recipients
+    assert_kind_of Hash, recipients[0]
   end
 
   test 'should have truncated recipient list' do
@@ -73,9 +73,9 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
     recipients = @controller.send :affected_json
     assert_not recipients.empty?
     assert_equal 1, recipients.length
-    assert_kind_of Donor::ActiveRecord_Relation, recipients
-    assert_kind_of Donor, recipients[0]
-    assert recipients[0].donation_date > '2017-03-16'
+    assert_kind_of Array, recipients
+    assert_kind_of Hash, recipients[0]
+    assert recipients[0]['donation_date'] > '2017-03-16'
   end
 
   test 'should have truncated recipient list that is empty' do

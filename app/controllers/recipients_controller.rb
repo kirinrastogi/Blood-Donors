@@ -35,12 +35,11 @@ class RecipientsController < ApplicationController
       .select(
         '*',
         'donations.created_at as donation_date'
-      )
-      .where(
+      ).where(
         'donations.donor_id = :id AND donations.created_at >= :after',
         id: params[:id],
         after: after
-      )
+      ).as_json
   end
 
   def recipient_params
