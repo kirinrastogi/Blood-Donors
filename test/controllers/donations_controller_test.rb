@@ -48,13 +48,13 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
   test 'should give response when showing data' do
     donation = @controller.send :show_json, 1
     # temporary, uses Donor.select in controller
-    assert_kind_of Donor, donation
+    assert_kind_of Hash, donation
   end
 
   test 'should have right format for show response properties' do
     get donations_url + '2/'
     donation = @controller.send :show_json, 1
-    id, created_at, recipient_id, donor_id, recipient_name, recipient_email, donor_name, donor_email = donation.attributes.values
+    id, created_at, recipient_id, donor_id, recipient_name, recipient_email, donor_name, donor_email = donation.values
     assert_equal 1, id
     assert_equal 2, recipient_id
     assert_equal 'recName2', recipient_name
@@ -62,7 +62,7 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'donName1', donor_name
     assert_equal 'donEmail1@email.com', donor_email
     assert_raises ActiveRecord::UnknownAttributeError do
-      Donation.new(donation.attributes).validate
+      Donation.new(donation).validate
     end
     assert Donation.new({ id: id, donor_id: donor_id, recipient_id: recipient_id }).validate
   end

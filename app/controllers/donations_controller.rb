@@ -44,7 +44,7 @@ class DonationsController < ApplicationController
     'recipients.email as recipient_email',
     'donors.name as donor_name',
     'donors.email as donor_email'
-    ).first
+    ).first.as_json
   end
 
   def donor_json(id)
