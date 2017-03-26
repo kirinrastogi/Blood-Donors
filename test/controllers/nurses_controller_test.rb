@@ -34,15 +34,16 @@ class NursesControllerTest < ActionDispatch::IntegrationTest
   test 'get show response format' do
     get nurses_url + '2/'
     nurse = @controller.send(:show_json)
-    assert_kind_of Nurse, nurse
+    assert_kind_of Hash, nurse
   end
 
   test 'get show response properties' do
     get nurses_url + '2/'
     nurse = @controller.send(:show_json)
-    assert_equal 'nurseName2', nurse.name
-    assert_equal 2, nurse.id
-    assert_equal 'nurseEmail2@email.com', nurse.email
-    assert Nurse.new(nurse.attributes).validate
+    id, name, email = nurse.values
+    assert_equal 'nurseName2', name
+    assert_equal 2, id
+    assert_equal 'nurseEmail2@email.com', email
+    assert Nurse.new(nurse).validate
   end
 end

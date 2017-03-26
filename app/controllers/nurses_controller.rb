@@ -1,6 +1,6 @@
 class NursesController < ApplicationController
   def show
-    @nurse = show_json
+    @nurse = Nurse.new show_json
   end
 
   def index
@@ -26,7 +26,7 @@ class NursesController < ApplicationController
   end
 
   def show_json
-    Nurse.find params[:id]
+    Nurse.find(params[:id]).as_json
   end
 
   helper_method :show_json
