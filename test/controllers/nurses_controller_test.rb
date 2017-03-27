@@ -24,6 +24,13 @@ class NursesControllerTest < ActionDispatch::IntegrationTest
     assert Nurse.new(nurse).validate
   end
 
+  test 'should be sorted in reverse order for index by id' do
+    get nurses_url
+    nurse_ids = JSON.parse(@response.body).map {|nurse| nurse['id']}
+    assert nurse_ids.length <= 10
+    assert_equal nurse_ids, nurse_ids.sort.reverse
+  end
+
   test 'get show response' do
     get nurses_url + '1/'
     assert_response :ok

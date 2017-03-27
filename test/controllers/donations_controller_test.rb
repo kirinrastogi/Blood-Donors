@@ -40,9 +40,8 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should respond with latest donations first for index, reversed order' do
     get donations_url
-    donations = JSON.parse(@response.body)
-    assert donations.length <= 10
-    donation_ids = donations.map {|donation| donation['id']}
+    donation_ids = JSON.parse(@response.body).map {|donation| donation['id']}
+    assert donation_ids.length <= 10
     assert_equal donation_ids, donation_ids.sort.reverse
   end
 

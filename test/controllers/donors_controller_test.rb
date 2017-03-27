@@ -24,6 +24,13 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     assert Donor.new(donor).validate
   end
 
+  test 'should be sorted in reverse order for index by id' do
+    get donors_url
+    donor_ids = JSON.parse(@response.body).map {|donor| donor['id']}
+    assert donor_ids.length <= 10
+    assert_equal donor_ids, donor_ids.sort.reverse
+  end
+
   test 'get show response' do
     get donors_url + '1/'
     assert_response :ok

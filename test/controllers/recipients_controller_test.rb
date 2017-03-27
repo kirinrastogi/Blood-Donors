@@ -24,6 +24,13 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
     assert Recipient.new(recipient).validate
   end
 
+  test 'should be sorted in reverse order for index by id' do
+    get recipients_url
+    recipient_ids = JSON.parse(@response.body).map {|recipient| recipient['id']}
+    assert recipient_ids.length <= 10
+    assert_equal recipient_ids, recipient_ids.sort.reverse
+  end
+
   test 'get show response' do
     get recipients_url + '1/'
     assert_response :ok
