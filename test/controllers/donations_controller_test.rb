@@ -15,6 +15,12 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  def validate_order(array)
+    array.reduce do |total, current|
+      current if assert total > current
+    end
+  end
+
   test 'should be ok response on donations index' do
     get donations_url
     assert_response :ok
@@ -38,6 +44,14 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
     assert Donation.new(donation).validate
   end
 
+  test 'should respond with latest donations first for index' do
+    get donations_url
+    donations = JSON.parse(@response.body)
+    assert donations.length <= 10
+    donation_ids = donations.map {|donation| donation['id']}
+    validate_order donation_ids
+  end
+
   test 'should be ok response on donations show' do
     get donations_url + '1/'
     assert_response :ok
@@ -47,7 +61,6 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
 
   test 'should give response when showing data' do
     donation = @controller.send :show_json, 1
-    # temporary, uses Donor.select in controller
     assert_kind_of Hash, donation
   end
 
