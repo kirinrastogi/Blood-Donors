@@ -4,7 +4,7 @@ class RecipientsController < ApplicationController
   end
 
   def index
-    render json: Recipient.find_each
+    render json: Recipient.last(10).reverse
   end
 
   def affected

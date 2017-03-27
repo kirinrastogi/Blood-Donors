@@ -32,8 +32,8 @@ class DonationsControllerTest < ActionDispatch::IntegrationTest
     get donations_url
     donation = JSON.parse(@response.body).first
     id, donor_id, recipient_id = donation.values
-    assert_equal 1, id
-    assert_equal 1, donor_id
+    assert_equal 3, id
+    assert_equal 2, donor_id
     assert_equal 2, recipient_id
     assert Donation.new(donation).validate
   end

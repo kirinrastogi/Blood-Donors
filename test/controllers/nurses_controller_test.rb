@@ -18,9 +18,9 @@ class NursesControllerTest < ActionDispatch::IntegrationTest
     get nurses_url
     nurse = JSON.parse(@response.body).first
     id, name, email = nurse.values
-    assert_equal 'nurseName1', name
-    assert_equal 'nurseEmail1@email.com', email
-    assert_equal 1, id
+    assert_equal 'nurseName2', name
+    assert_equal 'nurseEmail2@email.com', email
+    assert_equal 2, id
     assert Nurse.new(nurse).validate
   end
 

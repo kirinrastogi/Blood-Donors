@@ -4,7 +4,7 @@ class NursesController < ApplicationController
   end
 
   def index
-    render json: Nurse.find_each
+    render json: Nurse.last(10).reverse
   end
 
   def new

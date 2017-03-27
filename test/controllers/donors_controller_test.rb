@@ -18,9 +18,9 @@ class DonorsControllerTest < ActionDispatch::IntegrationTest
     get donors_url
     donor = JSON.parse(@response.body).first
     id, name, email = donor.values
-    assert_equal 'donName1', name
-    assert_equal 'donEmail1@email.com', email
-    assert_equal 1, id
+    assert_equal 'donName2', name
+    assert_equal 'donEmail2@email.com', email
+    assert_equal 2, id
     assert Donor.new(donor).validate
   end
 

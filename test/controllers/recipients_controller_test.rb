@@ -18,9 +18,9 @@ class RecipientsControllerTest < ActionDispatch::IntegrationTest
     get recipients_url
     recipient = JSON.parse(@response.body).first
     id, name, email = recipient.values
-    assert_equal 'recName1', name
-    assert_equal 'recEmail1@email.com', email
-    assert_equal 1, id
+    assert_equal 'recName2', name
+    assert_equal 'recEmail2@email.com', email
+    assert_equal 2, id
     assert Recipient.new(recipient).validate
   end
 

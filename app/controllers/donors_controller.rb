@@ -4,7 +4,7 @@ class DonorsController < ApplicationController
   end
 
   def index
-    render json: Donor.find_each
+    render json: Donor.last(10).reverse
   end
 
   def new
