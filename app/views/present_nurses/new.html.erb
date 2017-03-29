@@ -1,0 +1,11 @@
+<h1>New PresentNurse</h1>
+
+<%= form_for @present_nurse do |f| %>
+  <%= f.label :donation_id %>
+  <%= f.text_field :donation_id %>
+  <br />
+  <%= f.label :nurse_id %>
+  <%= f.text_area :nurse_id %>
+  <br />
+  <%= f.submit %>
+<% end %>
