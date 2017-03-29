@@ -32,8 +32,12 @@ SIZE.times do |id|
   end
 end
 
-puts "Creating donations and present_nurses"
+puts 'Creating donations'
 DONATION_SIZE.times do |id|
   Donation.create(id: id, donor_id: rand(SIZE), recipient_id: rand(SIZE))
+end
+
+puts 'Creating present_nurses'
+SIZE.times do |id|
   PresentNurse.create(id: id, donation_id: rand(DONATION_SIZE), nurse_id: rand(NURSE_SIZE))
 end
