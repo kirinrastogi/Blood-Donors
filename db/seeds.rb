@@ -35,7 +35,5 @@ end
 puts "Creating donations and present_nurses"
 DONATION_SIZE.times do |id|
   Donation.create(id: id, donor_id: rand(SIZE), recipient_id: rand(SIZE))
-  if id < NURSE_SIZE
-    PresentNurse.create(id: id, donation_id: rand(DONATION_SIZE), nurse_id: rand(NURSE_SIZE))
-  end
+  PresentNurse.create(id: id, donation_id: rand(DONATION_SIZE), nurse_id: rand(NURSE_SIZE))
 end
