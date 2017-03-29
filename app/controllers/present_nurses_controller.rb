@@ -7,6 +7,17 @@ class PresentNursesController < ApplicationController
     render json: PresentNurse.last(10).reverse
   end
 
+  def new
+    @present_nurse = PresentNurse.new
+  end
+
+  def create
+    @present_nurse = PresentNurse.new(present_nurse__params).save!
+    redirect_to @present_nurse
+  rescue
+    render 'new'
+  end
+
   private
 
   def present_nurse_params
