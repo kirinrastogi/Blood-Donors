@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/donations/recipient/:id' => 'donations#recipient'
   resources :recipients, only: [:show, :index, :create, :new]
   resources :nurses, only: [:show, :index, :create, :new]
-  resources :present_nurses, only: [:index]
+  resources :present_nurses, only: [:show, :index]
 end
