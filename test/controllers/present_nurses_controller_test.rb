@@ -34,8 +34,8 @@ class PresentNursesControllerTest < ActionDispatch::IntegrationTest
   test 'should be ok response on present_nurses show' do
     get present_nurses_url + '1/'
     assert_response :ok
-    #assert_equal 'text/html', @response.content_type
-    #assert_kind_of String, @response.body
+    assert_equal 'text/html', @response.content_type
+    assert_kind_of String, @response.body
   end
 
   test 'should give response when showing data' do

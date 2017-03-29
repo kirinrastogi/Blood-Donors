@@ -1,6 +1,6 @@
 class PresentNursesController < ApplicationController
   def show
-    render json: PresentNurse.new(show_json)
+    @present_nurse = PresentNurse.new(show_json)
   end
 
   def index
