@@ -16,8 +16,7 @@ class RecipientsController < ApplicationController
   end
 
   def create
-    @recipient = Recipient.new recipient_params
-    @recipient.save!
+    @recipient = Recipient.create recipient_params
     redirect_to @recipient
   rescue
     render 'new'

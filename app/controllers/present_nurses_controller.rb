@@ -12,8 +12,7 @@ class PresentNursesController < ApplicationController
   end
 
   def create
-    @present_nurse = PresentNurse.new present_nurse_params
-    @present_nurse.save!
+    @present_nurse = PresentNurse.create present_nurse_params
     redirect_to @present_nurse
   rescue
     render 'new'

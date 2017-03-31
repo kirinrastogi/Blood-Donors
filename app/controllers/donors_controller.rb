@@ -12,8 +12,7 @@ class DonorsController < ApplicationController
   end
 
   def create
-    @donor = Donor.new donor_params
-    @donor.save!
+    @donor = Donor.create donor_params
     redirect_to @donor
   rescue
     render 'new'
