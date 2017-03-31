@@ -20,7 +20,8 @@ class DonationsController < ApplicationController
   end
 
   def create
-    @donation = Donation.new(donation_params).save!
+    @donation = Donation.new donation_params
+    @donation.save!
     redirect_to @donation
   rescue
     render 'new'
