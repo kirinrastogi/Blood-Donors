@@ -1,24 +1,7 @@
-# README
+# Blood Donor Management System
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 2.3.0p0
 
-Things you may want to cover:
+* Database: sqlite3, rails db:create, and rails db:seed, or rails db:reset
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Testing: rails t
