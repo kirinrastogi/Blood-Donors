@@ -11,6 +11,15 @@ People donate blood every day. To ensure that the blood is trasferred safely, bo
 * PresentNurse, the relationship between nurses and donations, involves 1 nurse and 1 donation
 
 ### Design
+![Database Schema](app/assets/images/schema.png "Database Schema")
+
+* Donor has many Recipients through Donations
+* Recipient has many Donors through Donations
+* Donation has many Donors and Recipients, has many Nurses through PresentNurses
+* Nurse has many Donations through PresentNurses
+* PresentNurse has many Donors and Recipients
+
+### Environment
 
 * Ruby version: 2.3.0p0
 
