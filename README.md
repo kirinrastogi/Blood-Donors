@@ -13,11 +13,11 @@ People donate blood every day. To ensure that the blood is trasferred safely, bo
 ### Design
 ![Database Schema](app/assets/images/schema.png "Database Schema")
 
-* Donor has many Recipients through Donations
-* Recipient has many Donors through Donations
-* Donation has many Donors and Recipients, has many Nurses through PresentNurses
-* Nurse has many Donations through PresentNurses
-* PresentNurse has many Donors and Recipients
+* Donor has many Donations, Recipients through Donations
+* Recipient has many Donations, Donors through Donations
+* Donation belongs to Donors and Recipients, has many Nurses through PresentNurses
+* Nurse has many PresentNurses, Donations through PresentNurses
+* PresentNurse belongs to Donations and Nurses
 
 ### Environment
 
