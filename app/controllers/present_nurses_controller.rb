@@ -1,6 +1,6 @@
 class PresentNursesController < ApplicationController
   def show
-    @present_nurse = PresentNurse.new(show_json)
+    @present_nurse = show_json
   end
 
   def index
@@ -25,7 +25,20 @@ class PresentNursesController < ApplicationController
   end
 
   def show_json
-    PresentNurse.find(params[:id]).as_json
+    Nurse.joins(:present_nurses => :donation)
+      .where('present_nurses.id = ?', params[:id])
+      .select(
+        'present_nurses.created_at', 
+        'present_nurses.id',
+        'present_nurses.nurse_id',
+        'present_nurses.donation_id',
+        'nurses.name as nurse_name',
+        'nurses.email as nurse_email',
+        'donations.donor_id as donor_id',
+        'donations.recipient_id as recipient_id'
+      )
+      .first
+      .as_json
   end
 
   helper_method :show_json

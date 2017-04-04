@@ -47,7 +47,7 @@ class PresentNursesControllerTest < ActionDispatch::IntegrationTest
   test 'should have right format for show response properties' do
     get present_nurses_url + '2/'
     present_nurse = @controller.send :show_json
-    id, donation_id, nurse_id = present_nurse.values
+    id, _, nurse_id, donation_id, nurse_name, nurse_email, donor_id, recipient_id  = present_nurse.values
     assert_equal 2, id
     assert_equal 1, donation_id
     assert_equal 1, nurse_id
@@ -55,6 +55,8 @@ class PresentNursesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 'nurseEmail1@email.com', nurse_email
     assert_equal 1, donor_id
     assert_equal 2, recipient_id
-    assert PresentNurse.new(present_nurse).validate
+    assert_raises ActiveModel::UnknownAttributeError do
+      PresentNurse.new(present_nurse).valid?
+    end
   end
 end
