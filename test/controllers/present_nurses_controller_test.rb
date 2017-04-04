@@ -51,6 +51,10 @@ class PresentNursesControllerTest < ActionDispatch::IntegrationTest
     assert_equal 2, id
     assert_equal 1, donation_id
     assert_equal 1, nurse_id
+    assert_equal 'nurseName1', nurse_name
+    assert_equal 'nurseEmail1@email.com', nurse_email
+    assert_equal 1, donor_id
+    assert_equal 2, recipient_id
     assert PresentNurse.new(present_nurse).validate
   end
 end
