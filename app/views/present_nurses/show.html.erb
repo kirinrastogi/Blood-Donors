@@ -1,7 +1,9 @@
 <% unless @present_nurse.nil? %>
   <h1>Showing Nurse Relation #<%= @present_nurse['id'] %></h1>
   <p>Donation: #<%= @present_nurse['donation_id'] %></p>
+  <p>Donor: #<%= @present_nurse['donor_id'] %></p>
   <p>Nurse: #<%= @present_nurse['nurse_id'] %></p>
+  <p>Name: <%= @present_nurse['nurse_name'] %></p>
 <% else %>
   <h1>No Record of Nurses</h1>
 <% end %>
