@@ -26,3 +26,8 @@ People donate blood every day. To ensure that the blood is trasferred safely, bo
 * Database: sqlite3, rails db:create, and rails db:seed, or rails db:reset
 
 * Testing: rails t
+
+### How to use this:
+* ```git clone https://github.com/kirinrastogi/Blood-Donors```
+* ```cd Blood-Donors/```
+* ```rails s -e production```
