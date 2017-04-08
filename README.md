@@ -31,3 +31,8 @@ People donate blood every day. To ensure that the blood is trasferred safely, bo
 * ```git clone https://github.com/kirinrastogi/Blood-Donors```
 * ```cd Blood-Donors/```
 * ```rails s -e production```
+
+### Entering Data
+The workflow for entering data should go something like this:
+* Add donor when they register and fill out questionnaire
+* Add recipient, donation (with donor specified), specify nurses
