@@ -36,3 +36,4 @@ People donate blood every day. To ensure that the blood is trasferred safely, bo
 The workflow for entering data should go something like this:
 * Add donor when they register and fill out questionnaire
 * Add recipient, donation (with donor specified), specify nurses
+* In the future I may create an easy way to create multiple resources from the frontend
