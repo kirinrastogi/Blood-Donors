@@ -71,5 +71,5 @@ class DonationsController < ApplicationController
       .where(recipient_id: id)
   end
 
-  helper_method(:show_json, :donor_json, :recipient_json, :show_populated?)
+  helper_method(:show_json, :donor_json, :recipient_json)
 end

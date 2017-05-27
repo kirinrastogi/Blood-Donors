@@ -7,23 +7,27 @@ class ActiveSupport::TestCase
 
   #load "#{Rails.root}/db/seeds.rb"
 
+  def base_url
+    'http://localhost:3000'
+  end
+
   def donors_url
-    'http://localhost:3000/donors/'
+    "#{base_url}/donors/"
   end
 
   def donations_url
-    'http://localhost:3000/donations/'
+    "#{base_url}/donations/"
   end
 
   def recipients_url
-    'http://localhost:3000/recipients/'
+    "#{base_url}/recipients/"
   end
 
   def nurses_url
-    'http://localhost:3000/nurses/'
+    "#{base_url}/nurses/"
   end
 
   def present_nurses_url
-    'http://localhost:3000/present_nurses/'
+    "#{base_url}/present_nurses/"
   end
 end
