@@ -36,15 +36,15 @@ class DonationsController < ApplicationController
     Donor.joins(:donations => :recipient)
       .where('donations.id = ?', id)
       .select(
-    'donations.created_at', 
-    'donations.id',
-    'donations.recipient_id',
-    'donations.donor_id',
-    'recipients.name as recipient_name',
-    'recipients.email as recipient_email',
-    'donors.name as donor_name',
-    'donors.email as donor_email'
-    ).first.as_json
+        'donations.created_at', 
+        'donations.id',
+        'donations.recipient_id',
+        'donations.donor_id',
+        'recipients.name as recipient_name',
+        'recipients.email as recipient_email',
+        'donors.name as donor_name',
+        'donors.email as donor_email'
+      ).first.as_json
   end
 
   def donor_json(id)
